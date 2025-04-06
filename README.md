@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# URL Kısaltma Panel Uygulaması
 
-## Getting Started
+Bu uygulama, URL kısaltma servisinin yönetim panelidir. Kullanıcılar URL'leri kısaltabilir, yönetebilir ve istatistikleri görüntüleyebilir.
 
-First, run the development server:
+## Çevresel Değişkenler
+
+Uygulama aşağıdaki çevresel değişkenleri kullanır:
+
+- `NEXT_PUBLIC_API_BASE_URL`: API'nin temel URL'si (örn: https://localhost:7093/api/v1)
+
+## Özellikler
+
+- URL oluşturma ve yönetme
+- Detaylı tıklanma istatistikleri
+- Kullanıcı kimlik doğrulama (giriş, kayıt, oturum yenileme)
+- Kısa URL yönlendirmeleri
+- Modern arayüz
+- Detaylı analitikler ve grafikler
+
+## Yükleme
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [repo-url]
+cd urlshorter-panel
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Eksik Bağımlılıklar
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Analitik paneli için aşağıdaki bağımlılıkları kurmanız gerekiyor:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install @radix-ui/react-select
+```
 
-## Learn More
+## Geliştirme
 
-To learn more about Next.js, take a look at the following resources:
+1. Depoyu klonlayın
+2. Bağımlılıkları yükleyin:
+   ```
+   npm install
+   ```
+3. `.env.local` dosyasını oluşturun ve gerekli değişkenleri ayarlayın:
+   ```
+   NEXT_PUBLIC_API_BASE_URL=https://localhost:7093/api/v1
+   ```
+4. Geliştirme sunucusunu başlatın:
+   ```
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Derleme ve Dağıtım
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Üretim sürümü için:
 
-## Deploy on Vercel
+```
+npm run build
+npm run start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Yapı
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/app` - Next.js sayfa bileşenleri
+- `/components` - Yeniden kullanılabilir bileşenler
+  - `/auth` - Kimlik doğrulama bileşenleri
+  - `/layout` - Yerleşim bileşenleri
+  - `/ui` - UI komponentleri
+  - `/url` - URL ile ilgili bileşenler
+- `/contexts` - React Context API ile durum yönetimi
+- `/lib` - Yardımcı işlevler ve API istemcisi
+
+## Analitik Özellikleri
+
+- En popüler URL'lerin çubuk grafiği
+- URL bazında detaylı tıklanma analizleri
+- Zaman serisi tıklanma verileri
+- Referans kaynak dağılımı
+- Cihaz dağılımı
+- Tarih aralığına göre filtreleme
+- Toplam tıklanma, tekil ziyaretçi ve günlük ortalama istatistikleri
+
+## Hata Düzeltme
+
+Eğer eksik bağımlılıklar hatası alırsanız aşağıdaki komutları çalıştırın:
+
+```bash
+npm install @radix-ui/react-select
+npm install
+```
+
+Eğer TypeScript hataları görürseniz, aşağıdaki komutu çalıştırabilirsiniz:
+
+```bash
+npm run build
+```
+
+## Not
+
+`.env.local` dosyası git tarafından yoksayılır ve yerel ortam değişkenlerinizi içerebilir. Bu dosyayı paylaşmamaya dikkat edin.

@@ -22,7 +22,7 @@ Uygulama aşağıdaki çevresel değişkenleri kullanır:
 ```bash
 git clone [repo-url]
 cd urlshorter-panel
-npm install
+bun install
 ```
 
 ## Eksik Bağımlılıklar
@@ -30,7 +30,7 @@ npm install
 Analitik paneli için aşağıdaki bağımlılıkları kurmanız gerekiyor:
 
 ```bash
-npm install @radix-ui/react-select
+bun install @radix-ui/react-select
 ```
 
 ## Geliştirme
@@ -38,7 +38,7 @@ npm install @radix-ui/react-select
 1. Depoyu klonlayın
 2. Bağımlılıkları yükleyin:
    ```
-   npm install
+   bun install
    ```
 3. `.env.local` dosyasını oluşturun ve gerekli değişkenleri ayarlayın:
    ```
@@ -46,7 +46,7 @@ npm install @radix-ui/react-select
    ```
 4. Geliştirme sunucusunu başlatın:
    ```
-   npm run dev
+   bun run dev
    ```
 
 ## Derleme ve Dağıtım
@@ -54,8 +54,8 @@ npm install @radix-ui/react-select
 Üretim sürümü için:
 
 ```
-npm run build
-npm run start
+bun run build
+bun run start
 ```
 
 ## Yapı
@@ -84,14 +84,14 @@ npm run start
 Eğer eksik bağımlılıklar hatası alırsanız aşağıdaki komutları çalıştırın:
 
 ```bash
-npm install @radix-ui/react-select
-npm install
+bun install @radix-ui/react-select
+bun install
 ```
 
 Eğer TypeScript hataları görürseniz, aşağıdaki komutu çalıştırabilirsiniz:
 
 ```bash
-npm run build
+bun run build
 ```
 
 ## Not

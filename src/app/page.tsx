@@ -52,7 +52,7 @@ export default function Home() {
             <Button 
               size="lg" 
               variant="outline" 
-              onClick={() => router.push('/about')}
+              onClick={() => router.push('/info')}
             >
               Daha Fazla Bilgi
             </Button>

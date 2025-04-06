@@ -42,6 +42,9 @@ export default function RootLayout({
                         &copy; {new Date().getFullYear()} URL Shortener. All rights reserved.
                       </p>
                       <div className="flex gap-4 text-sm text-muted-foreground">
+                        <Link href="/info" className="hover:text-foreground hover:underline">
+                          Daha Fazla Bilgi
+                        </Link>
                         <Link href="/contact" className="hover:text-foreground hover:underline">
                           İletişim
                         </Link>

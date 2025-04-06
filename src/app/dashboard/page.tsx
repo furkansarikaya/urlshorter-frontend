@@ -97,7 +97,8 @@ export default function DashboardPage() {
   // Auth kontrolü - loginde değilse login sayfasına yönlendir
   useEffect(() => {
     if (!loading && !isLoggedIn) {
-      router.push('/login');
+      // returnUrl parametresi ile login sayfasına yönlendir
+      router.push(`/login?returnUrl=${encodeURIComponent('/dashboard')}`);
     }
   }, [isLoggedIn, loading, router]);
 
@@ -128,6 +129,11 @@ export default function DashboardPage() {
         <span className="ml-2">Yükleniyor...</span>
       </div>
     );
+  }
+
+  // Giriş yapılmadıysa içeriği gösterme
+  if (!isLoggedIn) {
+    return null;
   }
 
   const stats = calculateStats();

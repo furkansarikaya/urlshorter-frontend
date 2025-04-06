@@ -2,27 +2,29 @@
 'use client';
 
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import LoginForm from "@/components/auth/LoginForm";
 import { useAuth } from "@/contexts/AuthContext";
 
 export default function LoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const returnUrl = searchParams.get('returnUrl') || '/';
   const { isLoggedIn, loading } = useAuth();
 
   useEffect(() => {
-    // Kullanıcı giriş yapmışsa anasayfaya yönlendir
+    // Kullanıcı giriş yapmışsa returnUrl'e yönlendir
     if (isLoggedIn && !loading) {
-      router.push('/');
+      router.push(returnUrl);
     }
-  }, [isLoggedIn, loading, router]);
+  }, [isLoggedIn, loading, router, returnUrl]);
 
   // Loading durumunda bir şey gösterme veya loading animasyonu göster
   if (loading) return null;
 
   return (
     <div className="max-w-md mx-auto mt-10">
-      <LoginForm />
+      <LoginForm returnUrl={returnUrl} />
     </div>
   );
 }

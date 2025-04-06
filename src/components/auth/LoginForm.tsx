@@ -30,7 +30,11 @@ import {
 
 import { loginSchema, type LoginFormValues } from "@/lib/schemas";
 
-export default function LoginForm() {
+interface LoginFormProps {
+  returnUrl?: string;
+}
+
+export default function LoginForm({ returnUrl = '/' }: LoginFormProps) {
   const router = useRouter();
   const { login } = useAuth();
   const [errors, setErrors] = useState<string[]>([]);
@@ -52,7 +56,7 @@ export default function LoginForm() {
       const result = await login(values.email, values.password);
       
       if (result.success) {
-        router.push("/");
+        router.push(returnUrl);
       } else {
         setErrors(result.errors || []);
       }
